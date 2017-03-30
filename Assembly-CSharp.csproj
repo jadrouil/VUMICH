@@ -86,6 +86,7 @@
      <Compile Include="Assets\scripts\DrawingPreserver.cs" />
      <Compile Include="Assets\scripts\SetUpSimulation.cs" />
      <Compile Include="Assets\scripts\Testing.cs" />
+     <Compile Include="Assets\scripts\activateARMenu.cs" />
      <Compile Include="Assets\scripts\changeScene.cs" />
      <Compile Include="Assets\scripts\drawing.cs" />
      <Compile Include="Assets\scripts\swipeTrail.cs" />
