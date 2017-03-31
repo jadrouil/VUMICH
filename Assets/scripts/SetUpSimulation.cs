@@ -5,7 +5,8 @@ using UnityEngine;
 public class SetUpSimulation : MonoBehaviour {
 	public DrawingPreserver.corners leftCamCorners;
 	public DrawingPreserver.corners rightCamCorners;
-	public DrawingPreserver leftDrawing;
+	public List<DrawingPreserver> leftDrawings;
+	public List<DrawingPreserver> rightDrawings;
 	public float distanceFromCam;
 	public float hscale;
 	public float wscale;
@@ -111,17 +112,30 @@ public class SetUpSimulation : MonoBehaviour {
 		}
 	}
 
+	void draw(DrawingPreserver.corners corns, List<DrawingPreserver> drawings){
+		foreach (DrawingPreserver d in drawings) {
+			normalize (d);
+			translate (d, corns);
+			scaleAndEnable (d, corns);
+		}
+	
+	}
+
 	void Start () {
 
 		Camera lcam= GameObject.Find ("StereoCameraLeft").GetComponent<Camera>();
 		Camera rcam = GameObject.Find ("StereoCameraRight").GetComponent<Camera> ();
-		if (leftDrawing.exists ()) {
-		
+		if (leftDrawings.Count > 0) {
+			
 			leftCamCorners = findCamCorners (lcam);
-			normalize (leftDrawing);
-			translate (leftDrawing, leftCamCorners);
-			scaleAndEnable (leftDrawing, leftCamCorners);
+			draw (leftCamCorners, leftDrawings);
 
+		}
+
+		if (rightDrawings.Count > 0) {
+			rightCamCorners = findCamCorners (rcam);
+			draw (rightCamCorners, rightDrawings);
+		
 		}
 
 

@@ -17,6 +17,7 @@ public class DrawingPreserver : MonoBehaviour {
 		public float height;
 		public Vector3 relativeOrigin;
 
+
 		public void Refresh (){
 			width = topRight.x - topLeft.x;
 			height = topRight.y - bottomRight.y;
@@ -35,11 +36,13 @@ public class DrawingPreserver : MonoBehaviour {
 
 
 
-	public bool exists(){
-		return lines.Length > 0;
+	public void prepForDestruction(){
+		foreach (LineRenderer lr in lines) {
+			Destroy (lr.gameObject);
+		
+		}
 	
 	}
-
 
 	public void ProbeForDrawingSpace(){
 		lines = new LineRenderer[drawing.all_lines.Count];

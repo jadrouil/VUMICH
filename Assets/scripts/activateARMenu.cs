@@ -67,14 +67,10 @@ public class activateARMenu : MonoBehaviour {
 		if (NeverClicked () || TooLongSinceLastClick()) {
 			first_touch_detected = false;
 			time_at_start_of_window = Time.time;
-			print ("here");
 		} else if (FirstClick ()) {
 			first_touch_detected = true;
 			time_at_start_of_window = Time.time;
-			print ("first");
 		} else if (SecondClick()){
-			//meets criteria for double click
-			print("second");
 			menu_activated = !menu_activated;
 			setEachMenuItemTo(menu_activated);
 			first_touch_detected = false;

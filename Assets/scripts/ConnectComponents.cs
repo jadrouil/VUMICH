@@ -15,10 +15,11 @@ public class ConnectComponents : MonoBehaviour {
 	}
 	bool setUpDrawings(){
 
-		GameObject leftDraw = GameObject.Find ("_LeftDrawManager");
+		GameObject manager = GameObject.Find ("GlobalGameManager");
 
-		if (leftDraw) {
-			simulationManager.leftDrawing = leftDraw.GetComponent<DrawingPreserver> ();
+		if (manager) {
+			simulationManager.leftDrawings = manager.GetComponent<DrawingCollector> ().left();
+			simulationManager.rightDrawings = manager.GetComponent<DrawingCollector> ().right ();
 			return true;
 		}
 		return false;
@@ -26,8 +27,9 @@ public class ConnectComponents : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		Camera lcam= GameObject.Find ("StereoCameraLeft").GetComponent<Camera>();
-		Camera rcam = GameObject.Find ("StereoCameraRight").GetComponent<Camera> ();
+		
+		GameObject lcam = GameObject.Find ("StereoCameraLeft");
+		GameObject rcam = GameObject.Find ("StereoCameraRight");
 		if (lcam && rcam && lcam.transform.position != rcam.transform.position && setUpDrawings()) {
 			simulationManager.hscale = 3.67f;
 			simulationManager.wscale = 1.60f;

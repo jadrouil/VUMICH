@@ -81,12 +81,15 @@
      <Compile Include="Assets\Vuforia\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
-     <Compile Include="Assets\calibration.cs" />
      <Compile Include="Assets\scripts\ConnectComponents.cs" />
+     <Compile Include="Assets\scripts\DrawingCollector.cs" />
      <Compile Include="Assets\scripts\DrawingPreserver.cs" />
+     <Compile Include="Assets\scripts\PrepareDrawing.cs" />
      <Compile Include="Assets\scripts\SetUpSimulation.cs" />
+     <Compile Include="Assets\scripts\SimulationConfig.cs" />
      <Compile Include="Assets\scripts\Testing.cs" />
      <Compile Include="Assets\scripts\activateARMenu.cs" />
+     <Compile Include="Assets\scripts\calibration.cs" />
      <Compile Include="Assets\scripts\changeScene.cs" />
      <Compile Include="Assets\scripts\drawing.cs" />
      <Compile Include="Assets\scripts\swipeTrail.cs" />
@@ -98,7 +101,7 @@
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
-     <None Include="Assets\link.xml" />
+     <None Include="Assets\Vuforia\link.xml" />
      <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
@@ -116,7 +119,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
-     <None Include="Assets\readme_SDK.txt" />
+     <None Include="Assets\Vuforia\readme_SDK.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
@@ -126,7 +129,7 @@
      <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
-     <None Include="Assets\license_3rdpartynotice.txt" />
+     <None Include="Assets\Vuforia\license_3rdpartynotice.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />

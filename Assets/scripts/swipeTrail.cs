@@ -98,7 +98,6 @@ public class swipeTrail : MonoBehaviour {
 //		lr.startColor = getColor ();
 //		lr.endColor = getColor ();
 //		lr.material.color = getColor();
-		print(getColor());
 		lr.material.SetColor ("_Color", getColor ());
 		lr.material.SetColor ("_EmissionColor", getColor ());
 		//lr.material.SetColor ("_Color", getColor());
