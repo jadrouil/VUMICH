@@ -34,6 +34,7 @@ public class DrawingCollector : MonoBehaviour {
 		} else {
 			right_eye_filters.Add (drawing_to_preserve);
 		}
+		drawing_to_preserve.gameObject.name = "collectedDrawing";
 	}
 	public List<DrawingPreserver> left(){
 		return left_eye_filters;
