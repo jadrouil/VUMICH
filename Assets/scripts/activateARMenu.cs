@@ -9,23 +9,25 @@ public class activateARMenu : MonoBehaviour {
 	//time at start ... = time since last click or last time the window was too large, whichever is smaller
 	float time_at_start_of_window;
 	bool menu_activated = false;
+	public static bool save_screen_phase = false;
 
 	public float time_between_clicks;
 
-
+	void modify_phase(bool state, int i){
+		if (gameObject.transform.GetChild(i).gameObject.layer != ActivateSaveScreen.savelayer || save_screen_phase)
+			gameObject.transform.GetChild (i).gameObject.SetActive (state);
+		
+	}
 
 	void setEachMenuItemTo(bool state){
 	
 		for (int i = 0; i < gameObject.transform.childCount; ++i) {
-			gameObject.transform.GetChild (i).gameObject.SetActive (state);
-		
-		
+			modify_phase (state, i);
+
 		}
-//
-//		foreach (RectTransform child in gameObject.GetComponentsInChildren<RectTransform>()) {
-//			child.gameObject.SetActive (state);
-//			gameObject.transform.chil
-//		}
+		if (save_screen_phase) {
+			save_screen_phase = false;
+		}
 	
 	}
 

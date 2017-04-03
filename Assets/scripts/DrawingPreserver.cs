@@ -65,7 +65,6 @@ public class DrawingPreserver : MonoBehaviour {
 	}
 		
 	void findCorners(){
-		print ("alt");
 		Vector3[] imageCorners = new Vector3[4];
 		RectTransform rt = GameObject.Find ("Graph").GetComponent<RectTransform> ();
 		rt.GetWorldCorners (imageCorners);
@@ -83,6 +82,5 @@ public class DrawingPreserver : MonoBehaviour {
 		drawPlaneCorners.bottomLeft = drawingPlaneCorn [0];
 
 		drawPlaneCorners.Refresh ();
-		print ("end");
 	}
 }

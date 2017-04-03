@@ -19,11 +19,7 @@ public class changeScene : MonoBehaviour {
 		SceneManager.LoadScene (target_scene);
 	}
 
-//	public void CollectThenChange(string d_name){//, string next_scene){
-//		
-//		ChangeToScene (next_scene);
-//
-//	}
+
 	public void Collect(string d_name){
 		DrawingCollector dc = GameObject.Find ("GlobalGameManager").GetComponent<DrawingCollector>();
 		DrawingPreserver d = GameObject.Find (d_name).GetComponent<DrawingPreserver> ();

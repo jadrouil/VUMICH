@@ -69,7 +69,6 @@ public class SetUpSimulation : MonoBehaviour {
 		float half_width = drawing.drawPlaneCorners.width * .5f;
 		float half_height = drawing.drawPlaneCorners.height * .5f;
 		for (int i = 0; i < drawing.lines.Length; ++i) {
-			print ("Normalizing");
 			LineRenderer lr = drawing.lines [i];
 			normalizeLineRenderer (lr, drawing, half_width, half_height);
 		}
@@ -115,7 +114,6 @@ public class SetUpSimulation : MonoBehaviour {
 
 	void draw(DrawingPreserver.corners corns, List<DrawingPreserver> drawings){
 		foreach (DrawingPreserver d in drawings) {
-			print ("in draw");
 			normalize (d);
 			translate (d, corns);
 			scaleAndEnable (d, corns);
@@ -127,9 +125,7 @@ public class SetUpSimulation : MonoBehaviour {
 
 		Camera lcam= GameObject.Find ("StereoCameraLeft").GetComponent<Camera>();
 		Camera rcam = GameObject.Find ("StereoCameraRight").GetComponent<Camera> ();
-		print ("starting simulation");
 		if (leftDrawings.Count > 0) {
-			print ("drawing left");
 			leftCamCorners = findCamCorners (lcam);
 			draw (leftCamCorners, leftDrawings);
 

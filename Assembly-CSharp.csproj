@@ -81,10 +81,16 @@
      <Compile Include="Assets\Vuforia\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
+     <Compile Include="Assets\scripts\ActivateSaveScreen.cs" />
      <Compile Include="Assets\scripts\ConnectComponents.cs" />
      <Compile Include="Assets\scripts\DrawingCollector.cs" />
      <Compile Include="Assets\scripts\DrawingPreserver.cs" />
      <Compile Include="Assets\scripts\PrepareDrawing.cs" />
+     <Compile Include="Assets\scripts\SavingAndLoading\CompressedDrawing.cs" />
+     <Compile Include="Assets\scripts\SavingAndLoading\CompressedLine.cs" />
+     <Compile Include="Assets\scripts\SavingAndLoading\CompressedPt.cs" />
+     <Compile Include="Assets\scripts\SavingAndLoading\CompressedSimulationPreserver.cs" />
+     <Compile Include="Assets\scripts\SavingAndLoading\saveSimulation.cs" />
      <Compile Include="Assets\scripts\SetUpSimulation.cs" />
      <Compile Include="Assets\scripts\SimulationConfig.cs" />
      <Compile Include="Assets\scripts\Testing.cs" />
