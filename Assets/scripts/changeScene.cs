@@ -12,9 +12,10 @@ public class changeScene : MonoBehaviour {
 	public void ChangeToScene (string target_scene) {
 		if (target_scene == "MainScreen") {
 			GameObject ggm = GameObject.Find ("GlobalGameManager");
-			ggm.GetComponent<DrawingCollector> ().Reset ();
-
-			DestroyObject (ggm);
+			if (ggm) {
+				ggm.GetComponent<DrawingCollector> ().Reset ();
+				DestroyObject (ggm);
+			}
 		}
 		SceneManager.LoadScene (target_scene);
 	}

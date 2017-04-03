@@ -1,32 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class activateARMenu : MonoBehaviour {
 	public int menu_layer1 = 13;
 	public int save_layer = 11;
 	public int backgroundLayer = 12;
-	public int success_layer = 14;
+	public int status_layer = 14;
 
 	// Use this for initialization
 	bool first_touch_detected = false;
 	//time at start ... = time since last click or last time the window was too large, whichever is smaller
 	float time_at_start_of_window;
 
-	enum ScreenState {OFF,MAINMENU, SAVEMENU, SUCCESSMENU};
+	enum ScreenState {OFF,MAINMENU, SAVEMENU, STATUSMENU};
 	ScreenState currentState = ScreenState.OFF;
 
 
 	public float time_between_clicks;
 
-	public void displaySuccessfulSave(){
-		
-		bool success = GameObject.Find ("_SimulationManager").GetComponent<saveSimulation> ().successful_save;
-		
-		setEachItemInLayerTo(save_layer, false);
-		setEachItemInLayerTo (success_layer, true);
+	GameObject findChildWithName(string name){
+		for (int i = 0; i < gameObject.transform.childCount; ++i) {
+			GameObject go = gameObject.transform.GetChild (i).gameObject;
+			if (go.name == name) {
+				return go;
+			}
+		}
+		return null;
+	}
 
-		currentState = ScreenState.SUCCESSMENU;
+
+	public void displaySaveStatus(){
+		saveSimulation saver = GameObject.Find ("_SimulationManager").GetComponent<saveSimulation> ();
+		string status = saver.status_msg;
+		GameObject textobj = findChildWithName ("Status");
+
+		textobj.GetComponent<Text> ().text = status;
+			
+		setEachItemInLayerTo(save_layer, false);
+		setEachItemInLayerTo (status_layer, true);
+
+		currentState = ScreenState.STATUSMENU;
 	}
 
 
@@ -55,8 +70,8 @@ public class activateARMenu : MonoBehaviour {
 		}else if (currentState == ScreenState.SAVEMENU) {
 			setEachItemInLayerTo (save_layer, false);
 			currentState = ScreenState.OFF;
-		} else if (currentState == ScreenState.SUCCESSMENU) {
-			setEachItemInLayerTo (success_layer, false);
+		} else if (currentState == ScreenState.STATUSMENU) {
+			setEachItemInLayerTo (status_layer, false);
 			currentState = ScreenState.OFF;
 
 		} else {
