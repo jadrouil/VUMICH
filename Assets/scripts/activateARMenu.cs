@@ -3,37 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class activateARMenu : MonoBehaviour {
+	public int menu_layer1 = 13;
+	public int save_layer = 11;
+	public int backgroundLayer = 12;
+	public int success_layer = 14;
 
 	// Use this for initialization
 	bool first_touch_detected = false;
 	//time at start ... = time since last click or last time the window was too large, whichever is smaller
 	float time_at_start_of_window;
-	bool menu_activated = false;
-	public static bool save_screen_phase = false;
+
+	enum ScreenState {OFF,MAINMENU, SAVEMENU, SUCCESSMENU};
+	ScreenState currentState = ScreenState.OFF;
+
 
 	public float time_between_clicks;
 
-	void modify_phase(bool state, int i){
-		if (gameObject.transform.GetChild(i).gameObject.layer != ActivateSaveScreen.savelayer || save_screen_phase)
-			gameObject.transform.GetChild (i).gameObject.SetActive (state);
+	public void displaySuccessfulSave(){
 		
+		bool success = GameObject.Find ("_SimulationManager").GetComponent<saveSimulation> ().successful_save;
+		
+		setEachItemInLayerTo(save_layer, false);
+		setEachItemInLayerTo (success_layer, true);
+
+		currentState = ScreenState.SUCCESSMENU;
 	}
 
-	void setEachMenuItemTo(bool state){
+
+	public void displaySaveScreen(){
+
+		setEachItemInLayerTo (menu_layer1, false);
+		setEachItemInLayerTo (save_layer, true);
 	
+		currentState = ScreenState.SAVEMENU;
+	}
+
+	void setEachItemInLayerTo(int layer, bool state){
 		for (int i = 0; i < gameObject.transform.childCount; ++i) {
-			modify_phase (state, i);
-
-		}
-		if (save_screen_phase) {
-			save_screen_phase = false;
+			Transform child = gameObject.transform.GetChild (i);
+			string name = child.gameObject.name;
+			if (name == "RawImage" || child.gameObject.layer == layer)
+				child.gameObject.SetActive (state);
 		}
 	
 	}
 
-	void Start () {
-		setEachMenuItemTo (false);
+	void registerDoubleClick(){
+		if (currentState == ScreenState.OFF) {
+			setEachItemInLayerTo (menu_layer1, true);
+			currentState = ScreenState.MAINMENU;
+		}else if (currentState == ScreenState.SAVEMENU) {
+			setEachItemInLayerTo (save_layer, false);
+			currentState = ScreenState.OFF;
+		} else if (currentState == ScreenState.SUCCESSMENU) {
+			setEachItemInLayerTo (success_layer, false);
+			currentState = ScreenState.OFF;
+
+		} else {
+			//main menu
+			setEachItemInLayerTo (menu_layer1, false);
+			currentState = ScreenState.OFF;
+		}
 	}
+
+
+
 
 	bool FirstClick(){
 		bool fingerTouch = Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began;
@@ -73,8 +107,7 @@ public class activateARMenu : MonoBehaviour {
 			first_touch_detected = true;
 			time_at_start_of_window = Time.time;
 		} else if (SecondClick()){
-			menu_activated = !menu_activated;
-			setEachMenuItemTo(menu_activated);
+			registerDoubleClick();
 			first_touch_detected = false;
 			time_at_start_of_window = Time.time;
 		}

@@ -8,12 +8,14 @@ public class saveSimulation : MonoBehaviour {
 	public string saveFileName;
 	List<DrawingPreserver> leftDrawings;
 	List<DrawingPreserver> rightDrawings;
+	public bool successful_save = false;
 
 	public void setSaveFileName(string newname){
 		saveFileName = newname;
 	}
 
 	public void save(string drawingObjectName){
+		successful_save = false;
 		GameObject simMan = GameObject.Find (drawingObjectName);
 		if (simMan) {
 			SetUpSimulation sim = simMan.GetComponent<SetUpSimulation> ();
@@ -31,7 +33,8 @@ public class saveSimulation : MonoBehaviour {
 		FileStream file = File.Create (filelocation);
 		bf.Serialize (file, comp);
 		file.Close ();
-		print (filelocation);
+		successful_save = true;
+
 	}
 
 
