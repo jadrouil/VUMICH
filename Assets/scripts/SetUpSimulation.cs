@@ -10,7 +10,7 @@ public class SetUpSimulation : MonoBehaviour {
 	public float distanceFromCam;
 	public float hscale;
 	public float wscale;
-
+	public bool loaded;
 	// Use this for initialization
 	DrawingPreserver.corners findCamCorners(Camera arcam){
 		DrawingPreserver.corners crns = new DrawingPreserver.corners ();
@@ -114,9 +114,11 @@ public class SetUpSimulation : MonoBehaviour {
 
 	void draw(DrawingPreserver.corners corns, List<DrawingPreserver> drawings){
 		foreach (DrawingPreserver d in drawings) {
-			normalize (d);
-			translate (d, corns);
-			scaleAndEnable (d, corns);
+			if (!loaded) {
+				normalize (d);
+				translate (d, corns);
+				scaleAndEnable (d, corns);
+			}
 		}
 	
 	}

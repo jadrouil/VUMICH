@@ -20,6 +20,8 @@ public class ConnectComponents : MonoBehaviour {
 		if (manager) {
 			simulationManager.leftDrawings = manager.GetComponent<DrawingCollector> ().left();
 			simulationManager.rightDrawings = manager.GetComponent<DrawingCollector> ().right ();
+			simulationManager.loaded = manager.GetComponent<DrawingCollector> ().loaded;
+
 			return true;
 		}
 		return false;

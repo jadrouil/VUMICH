@@ -8,7 +8,7 @@ public class loadScreen : MonoBehaviour {
 
 	string saves_path;
 	string[] saves;
-	string[] full_paths;
+	public string[] full_paths;
 	int SavesAvailable;
 	int NoSavesAvailable;
 
@@ -29,6 +29,7 @@ public class loadScreen : MonoBehaviour {
 		}
 
 	}
+
 
 
 	void displaySaves(string[] fullnames){

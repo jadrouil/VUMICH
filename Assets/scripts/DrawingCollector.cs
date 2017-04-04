@@ -6,7 +6,7 @@ public class DrawingCollector : MonoBehaviour {
 
 	List<DrawingPreserver> left_eye_filters;
 	List<DrawingPreserver> right_eye_filters;
-
+	public bool loaded = false;
 
 	void Start(){
 		DontDestroyOnLoad (gameObject);
@@ -15,9 +15,11 @@ public class DrawingCollector : MonoBehaviour {
 	}
 
 	void DestroyPreservers(List<DrawingPreserver> ds){
+		
 		foreach (DrawingPreserver d in ds) {
 			d.prepForDestruction ();
-			Destroy (d.gameObject);
+			if(!loaded)
+				Destroy (d.gameObject);
 		}
 	}
 
@@ -36,6 +38,15 @@ public class DrawingCollector : MonoBehaviour {
 		}
 		drawing_to_preserve.gameObject.name = "collectedDrawing";
 	}
+	public void add_left(DrawingPreserver dp){
+		left_eye_filters.Add (dp);
+	
+	}
+	public void add_right(DrawingPreserver dp){
+		right_eye_filters.Add (dp);
+	}
+
+
 	public List<DrawingPreserver> left(){
 		return left_eye_filters;
 	}

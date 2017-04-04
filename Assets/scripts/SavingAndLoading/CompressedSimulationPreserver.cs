@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public class CompressedSimulationPreserver{
-	List<CompressedDrawing> left;
-	List<CompressedDrawing> right;
+	public List<CompressedDrawing> left;
+	public List<CompressedDrawing> right;
 
 	void compress(List<CompressedDrawing> compressed_side, List<DrawingPreserver> original){
 		foreach (DrawingPreserver d in original) {
