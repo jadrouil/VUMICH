@@ -7,6 +7,8 @@ public class swipeTrail : MonoBehaviour {
 	public float line_width;
 	public float shading = 0f;
 	public float threshold = 13f;
+	public string mode;
+
 	public GameObject linePrefab;
 	Plane objplane;
 	private Vector3 lastpt = Vector3.one * float.MaxValue;
@@ -143,7 +145,7 @@ public class swipeTrail : MonoBehaviour {
 		foreach(RaycastResult h in hits)
 		{
 			GameObject g = h.gameObject;
-			hit = ( g.name == "Graph" &&
+			hit = ( g.name == mode &&
 				(g.GetComponent<UnityEngine.UI.Image>() ||
 					g.GetComponent<Canvas>() ||
 					g.GetComponent<UnityEngine.UI.InputField>())

@@ -93,6 +93,7 @@
      <Compile Include="Assets\scripts\SavingAndLoading\SimLoader.cs" />
      <Compile Include="Assets\scripts\SavingAndLoading\loadScreen.cs" />
      <Compile Include="Assets\scripts\SavingAndLoading\saveSimulation.cs" />
+     <Compile Include="Assets\scripts\SetUpDrawingScene.cs" />
      <Compile Include="Assets\scripts\SetUpSimulation.cs" />
      <Compile Include="Assets\scripts\SimulationConfig.cs" />
      <Compile Include="Assets\scripts\Testing.cs" />

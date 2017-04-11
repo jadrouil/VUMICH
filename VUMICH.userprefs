@@ -1,8 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/swipeTrail.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/DrawingCollector.cs">
     <Files>
-      <File FileName="Assets/scripts/swipeTrail.cs" Line="12" Column="1" />
+      <File FileName="Assets/scripts/SavingAndLoading/loadScreen.cs" Line="11" Column="9" />
+      <File FileName="Assets/scripts/swipeTrail.cs" Line="101" Column="3" />
+      <File FileName="Assets/scripts/changeScene.cs" Line="12" Column="8" />
+      <File FileName="Assets/scripts/SavingAndLoading/SimLoader.cs" Line="14" Column="2" />
+      <File FileName="Assets/scripts/SavingAndLoading/saveSimulation.cs" Line="14" Column="2" />
+      <File FileName="Assets/scripts/drawing.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/DrawingPreserver.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/PrepareDrawing.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/SavingAndLoading/CompressedSimulationPreserver.cs" Line="8" Column="9" />
+      <File FileName="Assets/scripts/SavingAndLoading/CompressedDrawing.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/SavingAndLoading/CompressedLine.cs" Line="28" Column="10" />
+      <File FileName="Assets/scripts/DrawingCollector.cs" Line="20" Column="1" />
+      <File FileName="Assets/scripts/SetUpSimulation.cs" Line="121" Column="5" />
+      <File FileName="Assets/scripts/ConnectComponents.cs" Line="24" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

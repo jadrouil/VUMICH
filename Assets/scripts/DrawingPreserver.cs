@@ -30,7 +30,6 @@ public class DrawingPreserver : MonoBehaviour {
 
 	public swipeTrail drawing;
 	public corners drawPlaneCorners;
-
 	public LineRenderer[] lines;
 
 
@@ -66,7 +65,8 @@ public class DrawingPreserver : MonoBehaviour {
 		
 	void findCorners(){
 		Vector3[] imageCorners = new Vector3[4];
-		RectTransform rt = GameObject.Find ("Graph").GetComponent<RectTransform> ();
+		SimulationConfig sc = GameObject.Find ("GlobalGameManager").GetComponent<SimulationConfig> ();
+		RectTransform rt = GameObject.Find (sc.mode).GetComponent<RectTransform> ();
 		rt.GetWorldCorners (imageCorners);
 
 
