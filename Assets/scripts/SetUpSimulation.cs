@@ -77,8 +77,8 @@ public class SetUpSimulation : MonoBehaviour {
 
 	void translate(DrawingPreserver drawing, DrawingPreserver.corners corners){
 		
-		float half_width_scale = corners.width * .5f;
-		float half_height_scale = corners.height * .5f;
+		float half_width_scale = corners.width * .5f * drawing.scale;
+		float half_height_scale = corners.height * .5f * drawing.scale;
 
 		for (int i = 0; i < drawing.lines.Length; ++i) {
 			LineRenderer lr = drawing.lines [i];
@@ -102,6 +102,7 @@ public class SetUpSimulation : MonoBehaviour {
 
 	void scaleAndEnable(DrawingPreserver drawing, DrawingPreserver.corners corners){
 		float line_width_scale = corners.width * corners.height / drawing.drawPlaneCorners.width / drawing.drawPlaneCorners.height * hscale * wscale;
+		line_width_scale *= drawing.scale;
 	
 
 		for (int i = 0; i < drawing.lines.Length; ++i) {

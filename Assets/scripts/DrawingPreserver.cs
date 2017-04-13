@@ -31,7 +31,7 @@ public class DrawingPreserver : MonoBehaviour {
 	public swipeTrail drawing;
 	public corners drawPlaneCorners;
 	public LineRenderer[] lines;
-
+	public float scale = 1f;
 
 
 
@@ -67,6 +67,9 @@ public class DrawingPreserver : MonoBehaviour {
 		Vector3[] imageCorners = new Vector3[4];
 		SimulationConfig sc = GameObject.Find ("GlobalGameManager").GetComponent<SimulationConfig> ();
 		RectTransform rt = GameObject.Find (sc.mode).GetComponent<RectTransform> ();
+		if (sc.mode == "Clinical")
+			scale = (5 + sc.level * 5) / 30f;
+		print (scale);
 		rt.GetWorldCorners (imageCorners);
 
 

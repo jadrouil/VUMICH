@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class changeScene : MonoBehaviour {
 
+	public string scene_after_disease_clinical = "DegreeSelection";
+	public string scene_after_disease_athome = "SelectEye";
 
 	public void ChangeToScene (string target_scene) {
 		if (target_scene == "MainScreen") {
@@ -19,7 +21,15 @@ public class changeScene : MonoBehaviour {
 		}
 		SceneManager.LoadScene (target_scene);
 	}
-		
+
+	public void ChangeFromDiseaseTo(){
+		SimulationConfig sc = GameObject.Find ("GlobalGameManager").GetComponent<SimulationConfig> ();
+		if (sc.mode == "Clinical")
+			ChangeToScene (scene_after_disease_clinical);
+		else
+			ChangeToScene (scene_after_disease_athome);
+	
+	}
 
 	public void Collect(string d_name){
 		DrawingCollector dc = GameObject.Find ("GlobalGameManager").GetComponent<DrawingCollector>();

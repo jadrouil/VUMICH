@@ -97,6 +97,7 @@
      <Compile Include="Assets\scripts\SetUpSimulation.cs" />
      <Compile Include="Assets\scripts\SimulationConfig.cs" />
      <Compile Include="Assets\scripts\Testing.cs" />
+     <Compile Include="Assets\scripts\UpdateText.cs" />
      <Compile Include="Assets\scripts\activateARMenu.cs" />
      <Compile Include="Assets\scripts\calibration.cs" />
      <Compile Include="Assets\scripts\changeScene.cs" />
